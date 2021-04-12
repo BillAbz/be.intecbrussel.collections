@@ -4,7 +4,7 @@ import java.util.*;
 public class appHashSet {
 
     public static void main(String[] args) {
-        Collection<Integer> nummerVanGebruiker = new HashSet<>();
+        Set<Integer> nummerVanGebruiker = new HashSet<>();
 
         Scanner input = new Scanner(System.in);
 
@@ -31,6 +31,21 @@ public class appHashSet {
         System.out.println(nummerVanGebruiker);
 
 
+
+        Set<Integer> willekeurigeGetallen = new HashSet<>();
+
+        willekeurigeGetallen.add(12);
+        willekeurigeGetallen.add(42);
+        willekeurigeGetallen.add(23);
+        willekeurigeGetallen.add(14);
+        willekeurigeGetallen.add(6);
+        willekeurigeGetallen.add(33);
+
+        System.out.println(willekeurigeGetallen);
+
+        willekeurigeGetallen.retainAll(nummerVanGebruiker);
+
+        System.out.println(willekeurigeGetallen);
 
 
 
