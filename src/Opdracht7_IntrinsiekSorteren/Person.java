@@ -1,8 +1,9 @@
-package Opdracht2_HashSet;
+package Opdracht7_IntrinsiekSorteren;
 
 import java.util.Objects;
 
-public class Person {
+
+public class Person implements Comparable<Person>{
     private String firstName;
     private String lastName;
     private String gender;
@@ -11,7 +12,7 @@ public class Person {
     private double height;
 
 
-    public Person(String firstName, String lastName, String gender, int age, double weight, double height) {
+    public Person(String firstName, String lastName, String gender, int age,  double height,double weight) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.gender = gender;
@@ -20,10 +21,9 @@ public class Person {
         this.height = height;
     }
 
-    public Person(String firstName, int age, double weight) {
+    public Person(String firstName, int age) {
         this.firstName = firstName;
         this.age = age;
-        this.weight = weight;
     }
 
     public String getFirstName() {
@@ -77,8 +77,8 @@ public class Person {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Person)) return false;
-        Person person = (Person) o;
+        if (!(o instanceof Opdracht2_HashSet.Person)) return false;
+        Opdracht2_HashSet.Person person = (Opdracht2_HashSet.Person) o;
         return getAge() == person.getAge() && Double.compare(person.getWeight(), getWeight()) == 0 && getFirstName().equals(person.getFirstName());
     }
 
@@ -97,5 +97,10 @@ public class Person {
                 ", weight=" + weight +
                 ", height=" + height +
                 '}';
+    }
+
+    @Override
+    public int compareTo(Person o) {
+        return -(this.lastName.compareTo(o.getLastName()));
     }
 }
