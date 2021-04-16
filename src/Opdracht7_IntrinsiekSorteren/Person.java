@@ -21,6 +21,12 @@ public class Person implements Comparable<Person>{
         this.height = height;
     }
 
+    public Person(String firstName, String gender, int age) {
+        this.firstName = firstName;
+        this.gender = gender;
+        this.age = age;
+    }
+
     public Person(String firstName, int age) {
         this.firstName = firstName;
         this.age = age;
@@ -101,6 +107,6 @@ public class Person implements Comparable<Person>{
 
     @Override
     public int compareTo(Person o) {
-        return -(this.lastName.compareTo(o.getLastName()));
+        return -(this.firstName.compareTo(o.getFirstName()));
     }
 }

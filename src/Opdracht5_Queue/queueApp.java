@@ -1,5 +1,6 @@
 package Opdracht5_Queue;
 
+import java.util.Comparator;
 import java.util.LinkedList;
 import java.util.PriorityQueue;
 import java.util.Queue;
@@ -24,23 +25,28 @@ public class queueApp {
 
         System.out.println("---------------------------");
 
-        Queue<BurgerOrder> orderQueue = new PriorityQueue<>();
+        Comparator<BurgerOrder> burgerOrderComparator = (BurgerOrder b1, BurgerOrder b2) -> b1.getNumber() - b2.getNumber();
+        Queue<BurgerOrder> orderQueue = new PriorityQueue<>(Comparator.comparingInt(BurgerOrder::getNumber).thenComparing(BurgerOrder::getName));
 
-        orderQueue.offer(new BurgerOrder("Bill",43));
-        orderQueue.offer(new BurgerOrder("Jack",14));
-        orderQueue.offer(new BurgerOrder("John",41));
-        orderQueue.offer(new BurgerOrder("Bill",24));
-        orderQueue.offer(new BurgerOrder("Miki",33));
+        orderQueue.offer(new BurgerOrder("Beef",43));
+        orderQueue.offer(new BurgerOrder("Chicken",14));
+        orderQueue.offer(new BurgerOrder("Vegie",41));
+        orderQueue.offer(new BurgerOrder("Fish",24));
+        orderQueue.offer(new BurgerOrder("Cheesy",33));
+        orderQueue.offer(new BurgerOrder("Beef And Cheesy",15));
 
 
 
-        BurgerOrder sQ = orderQueue.peek();
-        while (sQ != null){
-            System.out.println("About to handle " + sQ);
-            sQ = orders.poll();
-            System.out.println("Handling " + sQ);
-            sQ = orders.peek();
-        }
+//        BurgerOrder sQ = orderQueue.peek();
+//        while (sQ != null){
+//            System.out.println("About to handle " + sQ);
+//            sQ = orders.poll();
+//            System.out.println("Handling " + sQ);
+//            sQ = orders.peek();
+//        }
+//        System.out.println("   ");
+
+        orderQueue.forEach(burgerOrder -> System.out.println(burgerOrder));
 
 
 
